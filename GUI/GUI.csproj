@@ -98,11 +98,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fChinhSuaKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChinhSuaKhachHang.Designer.cs">
+      <DependentUpon>fChinhSuaKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="fDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fDangNhap.Designer.cs">
       <DependentUpon>fDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fQLKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fQLKhachHang.Designer.cs">
+      <DependentUpon>fQLKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fQuanLiTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fQuanLiTaiKhoan.Designer.cs">
+      <DependentUpon>fQuanLiTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fTienLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTienLuong.Designer.cs">
+      <DependentUpon>fTienLuong.cs</DependentUpon>
     </Compile>
     <Compile Include="fTrangChu.cs">
       <SubType>Form</SubType>
@@ -123,8 +147,21 @@
     <Compile Include="test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="fChinhSuaKhachHang.resx">
+      <DependentUpon>fChinhSuaKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fDangNhap.resx">
       <DependentUpon>fDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fQLKhachHang.resx">
+      <DependentUpon>fQLKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fQuanLiTaiKhoan.resx">
+      <DependentUpon>fQuanLiTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTienLuong.resx">
+      <DependentUpon>fTienLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fTrangChu.resx">
       <DependentUpon>fTrangChu.cs</DependentUpon>

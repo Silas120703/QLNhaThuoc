@@ -1,4 +1,7 @@
-﻿
+﻿using System.Drawing;
+using System.Windows.Forms;
+using System;
+
 namespace GUI
 {
     partial class fTrangChu
@@ -20,9 +23,12 @@ namespace GUI
             }
             base.Dispose(disposing);
         }
+
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDangXuat = new System.Windows.Forms.Button();
+            this.lblTenNhanVien = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,6 +55,8 @@ namespace GUI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkCyan;
+            this.panel1.Controls.Add(this.btnDangXuat);
+            this.panel1.Controls.Add(this.lblTenNhanVien);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
@@ -57,14 +65,39 @@ namespace GUI
             this.panel1.Size = new System.Drawing.Size(1371, 49);
             this.panel1.TabIndex = 0;
             // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.AutoSize = true;
+            this.btnDangXuat.BackColor = System.Drawing.Color.Teal;
+            this.btnDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnDangXuat.Location = new System.Drawing.Point(1268, 6);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(90, 34);
+            this.btnDangXuat.TabIndex = 5;
+            this.btnDangXuat.Text = "Đăng Xuất";
+            this.btnDangXuat.UseVisualStyleBackColor = false;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
+            // lblTenNhanVien
+            // 
+            this.lblTenNhanVien.AutoSize = true;
+            this.lblTenNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenNhanVien.ForeColor = System.Drawing.Color.Snow;
+            this.lblTenNhanVien.Location = new System.Drawing.Point(1126, 15);
+            this.lblTenNhanVien.Name = "lblTenNhanVien";
+            this.lblTenNhanVien.Size = new System.Drawing.Size(50, 16);
+            this.lblTenNhanVien.TabIndex = 4;
+            this.lblTenNhanVien.Text = "label4";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(1176, 15);
+            this.label3.Location = new System.Drawing.Point(1047, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 16);
+            this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Xin Chào ";
             // 
@@ -129,6 +162,7 @@ namespace GUI
             this.button12.TabIndex = 11;
             this.button12.Text = "Quản Lý Tài Khoản";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -142,6 +176,7 @@ namespace GUI
             this.button11.TabIndex = 10;
             this.button11.Text = "Quản Lý Tiền Lương";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
@@ -182,6 +217,7 @@ namespace GUI
             this.button8.TabIndex = 7;
             this.button8.Text = "Quản Lý Khách Hàng";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -295,6 +331,9 @@ namespace GUI
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fTrangChu_FormClosing);
+            this.Load += new System.EventHandler(this.fTrangChu_Load);
+            this.Resize += new System.EventHandler(this.fTrangChu_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -303,7 +342,6 @@ namespace GUI
             this.ResumeLayout(false);
 
         }
-
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -324,5 +362,69 @@ namespace GUI
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblTenNhanVien;
+        private System.Windows.Forms.Button btnDangXuat;
+
+        private void fTrangChu_Resize(object sender, EventArgs e)
+        {
+            // Điều chỉnh kích thước của panel1
+            panel1.Width = this.ClientSize.Width;
+            panel1.Height = 49;
+
+            // Điều chỉnh kích thước của panel3
+            panel3.Width = 253;
+            panel3.Height = this.ClientSize.Height - 49;
+
+            // Điều chỉnh kích thước của panel4
+            panel4.Location = new Point(257, 54);
+            panel4.Width = this.ClientSize.Width - 257;
+            panel4.Height = this.ClientSize.Height - 54;
+            // Điều chỉnh kích thước của panel1
+            panel1.Width = this.ClientSize.Width;
+            panel1.Height = 49;
+
+            // Điều chỉnh kích thước của panel3
+            panel3.Width = 253;
+            panel3.Height = this.ClientSize.Height - 49;
+
+            // Điều chỉnh kích thước của panel4
+            panel4.Location = new Point(257, 54);
+            panel4.Width = this.ClientSize.Width - 257;
+            panel4.Height = this.ClientSize.Height - 54;
+
+            // Điều chỉnh vị trí và kích thước của label "Xin chào" và button "Đăng xuất"
+            label3.Location = new Point(this.ClientSize.Width - 220, 15);
+            btnDangXuat.Location = new Point(this.ClientSize.Width - 120, 6);
+            lblTenNhanVien.Location = new Point(this.ClientSize.Width - 320, 15);
+        }
+
+        private void fTrangChu_Load(object sender, EventArgs e)
+        {
+            // Thiết lập kích thước ban đầu của các panel và control
+            panel1.Width = this.ClientSize.Width;
+            panel1.Height = 49;
+
+            panel3.Width = 253;
+            panel3.Height = this.ClientSize.Height - 49;
+
+            panel4.Location = new Point(257, 54);
+            panel4.Width = this.ClientSize.Width - 257;
+            panel4.Height = this.ClientSize.Height - 54;
+
+            // Thiết lập thuộc tính WindowState của form thành FormWindowState.Maximized
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void fTrangChu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+           
+        
     }
 }

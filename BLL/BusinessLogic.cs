@@ -9,28 +9,53 @@ using DAL;
 
 namespace BLL
 {
-    //class BusinessLogic
-    //{
-    //    DataAccess dal = new DataAccess();
-
-    //    public DataTable GetAllUsers()
-    //    {
-    //        string query = "SELECT * FROM Users";
-    //        return dal.GetData(query);
-    //    }
-
-    //}
-    public class DatabaseManager
+    public class BusinessLogic
     {
-        private DataAccess dbConnection = new DataAccess();
+        DataAccess dal = new DataAccess();
 
+        //public DataTable GetAllUsers()
+        //{
+        //    string query = "SELECT * FROM Users";
+        //    return dal.GetData(query);
+        //}
+        public DataTable GetLuong()
+        {
+            return dal.GetLuongData();
+        }
         public bool CheckConnection()
         {
-            return dbConnection.TestConnection();
+            return dal.TestConnection();
         }
         public bool Login(string username, string password)
         {
-            return dbConnection.CheckLogin(username, password);
+            return dal.CheckLogin(username, password);
         }
+        public string GetTenNhanVien(string username, string password)
+        {
+            // Gọi phương thức từ tầng DAL để lấy tên nhân viên
+            return dal.GetTenNhanVien(username, password);
+        }
+
+        public DataTable GetNguoiDung()
+        {
+            return dal.GetNguoiDung();
+        }
+
+        public DataTable GetKhachHang()
+        {
+            return dal.GetKhachHang();
+        }
+        public DataTable GetKhachHang(int  maKhachHang)
+        {
+            return dal.GetKhachHang(maKhachHang);
+        }
+        public Boolean UpdateKhachHang(int maKhachHang, string tenKhachHang, string diaChi,string email, string soDienThoai)
+        {
+            return dal.UpdateKhachHang(maKhachHang,tenKhachHang,diaChi,email,soDienThoai);
+        }
+
+
     }
+    
+
 }
